@@ -1,0 +1,28 @@
+[package]
+name = "uncensored-ai-studio"
+version = "1.0.0"
+description = "Uncensored AI Studio - Offline AI Desktop App"
+authors = ["Uncensored AI Studio"]
+edition = "2024"
+
+[lib]
+name = "uncensored_ai_studio_lib"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "dialog", "image-png"] }
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-shell = "2"
+tauri-plugin-process = "2"
+tauri-plugin-autostart = { version = "2", features = ["manager"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sysinfo = "0.33"
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
